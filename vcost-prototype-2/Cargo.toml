@@ -1,0 +1,21 @@
+[package]
+name = "vcost-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+
+v4l2 = ["nokhwa/input-v4l"]
+win = ["nokhwa/input-opencv"]
+
+[dependencies]
+pyo3 = {version = "0.15.1", features = ["auto-initialize", "anyhow"]}
+rodio = {version = "0.15"}
+rand = "0.8.4"
+anyhow = "1.0.53"
+nokhwa = {version = "0.9.4"}
+numpy = "0.15.1"
+image = {version = "0.23", default-features = true, features = ["png"]}
+ndarray = "0.15.4"
