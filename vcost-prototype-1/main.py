@@ -17,7 +17,7 @@ def create_media(instance, emotion, intensity):
 
 def main():
     try:
-        camera_id = sys.argv[1]
+        camera_id = int(sys.argv[1])
     except IndexError:
         camera_id = 0
     cam = cv2.VideoCapture(camera_id)

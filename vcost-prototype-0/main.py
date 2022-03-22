@@ -93,7 +93,7 @@ def make_music(data: EmotionSnapshot, length: int) -> Stream:
 
 def main():
     try:
-        camera_id = sys.argv[1]
+        camera_id = int(sys.argv[1])
     except IndexError:
         camera_id = 0
     cam = cv2.VideoCapture(camera_id)
