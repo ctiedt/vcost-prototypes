@@ -1,4 +1,5 @@
 import random
+import sys
 import time
 
 from fer import FER
@@ -15,7 +16,11 @@ def create_media(instance, emotion, intensity):
 
 
 def main():
-    cam = cv2.VideoCapture(1)
+    try:
+        camera_id = sys.argv[1]
+    except IndexError:
+        camera_id = 0
+    cam = cv2.VideoCapture(camera_id)
     detector = FER()
     instance = vlc.Instance()
     player = instance.media_player_new()

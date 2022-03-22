@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from os import path
 import random
 import subprocess
+import sys
 import time
 
 from fer import FER
@@ -91,7 +92,11 @@ def make_music(data: EmotionSnapshot, length: int) -> Stream:
 
 
 def main():
-    cam = cv2.VideoCapture(1)
+    try:
+        camera_id = sys.argv[1]
+    except IndexError:
+        camera_id = 0
+    cam = cv2.VideoCapture(camera_id)
     detector = FER()
     instance = vlc.Instance()
     player = instance.media_player_new()

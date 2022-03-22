@@ -90,7 +90,7 @@ detector = fer.FER()
 }
 
 fn main() -> anyhow::Result<()> {
-    let cam_idx = std::env::args().nth(1).expect("No arguments found");
+    let cam_idx = std::env::args().nth(1).expect("Please call the program as `vcost_rs <id>` where id is the ID of your camera (probably 0, unless you have multiple cameras connected)");
 
     let shared_frame: Arc<Mutex<Option<ndarray::Array3<u8>>>> = Arc::new(Mutex::new(None));
 
